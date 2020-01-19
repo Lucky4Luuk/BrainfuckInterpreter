@@ -9,6 +9,10 @@ pub fn translate_rust(code: String)
     //,: Take input?
     //[: while (memory[data_ptr as usize] > 0) {
     //]: }
+
+    //TODO: Write some basic code before translating the bf code. Let it set up the memory and shit like that.
+    //Also, filter out any non-brainfuck characters. We don't care about comments in the final compiled version.
+    //Then, we simply translate the code according to the code above, and then we call the rust compiler on that.
 }
 
 pub fn interpret(code: String)
