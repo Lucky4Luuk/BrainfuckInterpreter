@@ -5,81 +5,90 @@ fn main() {
     let mut memory: [u8; 65536] = [0; 65536];
     let mut data_ptr: u8 = 0;
 
-//Brainfuck code    print!("{}", memory[data_ptr as usize] as char);
-    data_ptr += 1;
+//Brainfuck code
+    while (memory[data_ptr as usize] > 0) {
+        print!("{}", memory[data_ptr as usize] as char);
+        memory[data_ptr as usize] -= 2;
+        print!("{}", memory[data_ptr as usize] as char);
+        print!("{}", memory[data_ptr as usize] as char);
+    }
     memory[data_ptr as usize] += 8;
     while (memory[data_ptr as usize] > 0) {
-        memory[data_ptr as usize] -= 1;
-        data_ptr -= 1;
-        memory[data_ptr as usize] += 9;
         data_ptr += 1;
+        memory[data_ptr as usize] += 1;
+        data_ptr += 1;
+        memory[data_ptr as usize] += 4;
+        data_ptr -= 2;
+        memory[data_ptr as usize] -= 1;
     }
-    data_ptr -= 1;
-    print!("{}", memory[data_ptr as usize] as char);
+    data_ptr += 1;
+    memory[data_ptr as usize] += 2;
     data_ptr += 2;
     memory[data_ptr as usize] += 1;
-    data_ptr += 1;
-    memory[data_ptr as usize] -= 1;
+    data_ptr -= 1;
     while (memory[data_ptr as usize] > 0) {
+        memory[data_ptr as usize] -= 1;
+        while (memory[data_ptr as usize] > 0) {
+            data_ptr += 2;
+            memory[data_ptr as usize] += 1;
+            data_ptr -= 2;
+            memory[data_ptr as usize] -= 1;
+        }
         memory[data_ptr as usize] += 1;
+        data_ptr += 2;
     }
-    memory[data_ptr as usize] += 2;
     data_ptr += 1;
-    memory[data_ptr as usize] += 2;
-    data_ptr += 1;
-    memory[data_ptr as usize] += 3;
+    memory[data_ptr as usize] += 1;
     while (memory[data_ptr as usize] > 0) {
-        data_ptr += 1;
+        memory[data_ptr as usize] -= 1;
+        data_ptr -= 3;
         while (memory[data_ptr as usize] > 0) {
             memory[data_ptr as usize] -= 1;
             data_ptr += 1;
-            memory[data_ptr as usize] += 3;
+            while (memory[data_ptr as usize] > 0) {
+                memory[data_ptr as usize] += 1;
+                while (memory[data_ptr as usize] > 0) {
+                    memory[data_ptr as usize] -= 1;
+                }
+                memory[data_ptr as usize] += 1;
+                data_ptr += 1;
+                memory[data_ptr as usize] += 2;
+                data_ptr += 3;
+                memory[data_ptr as usize] -= 1;
+                data_ptr -= 2;
+            }
+            data_ptr -= 1;
+            while (memory[data_ptr as usize] > 0) {
+                data_ptr -= 1;
+            }
+            data_ptr += 2;
+            memory[data_ptr as usize] += 6;
+            while (memory[data_ptr as usize] > 0) {
+                data_ptr -= 2;
+                memory[data_ptr as usize] += 5;
+                data_ptr += 2;
+                memory[data_ptr as usize] -= 1;
+            }
+            memory[data_ptr as usize] += 1;
             data_ptr -= 2;
-            memory[data_ptr as usize] += 3;
-            data_ptr += 1;
+            memory[data_ptr as usize] += 2;
+            print!("{}", memory[data_ptr as usize] as char);
+            while (memory[data_ptr as usize] > 0) {
+                memory[data_ptr as usize] -= 1;
+            }
+            data_ptr -= 2;
         }
-        data_ptr -= 2;
-    }
-    data_ptr += 1;
-    memory[data_ptr as usize] -= 5;
-    print!("{}", memory[data_ptr as usize] as char);
-    data_ptr += 1;
-    memory[data_ptr as usize] -= 1;
-    data_ptr += 1;
-    memory[data_ptr as usize] += 3;
-    print!("{}", memory[data_ptr as usize] as char);
-    print!("{}", memory[data_ptr as usize] as char);
-    memory[data_ptr as usize] += 3;
-    print!("{}", memory[data_ptr as usize] as char);
-    data_ptr += 1;
-    memory[data_ptr as usize] -= 1;
-    print!("{}", memory[data_ptr as usize] as char);
-    data_ptr -= 2;
-    memory[data_ptr as usize] += 1;
-    while (memory[data_ptr as usize] > 0) {
         data_ptr += 1;
+        print!("{}", memory[data_ptr as usize] as char);
+        data_ptr += 1;
+        memory[data_ptr as usize] += 1;
         while (memory[data_ptr as usize] > 0) {
-            memory[data_ptr as usize] += 1;
-            data_ptr += 1;
-            memory[data_ptr as usize] += 1;
+            data_ptr += 2;
         }
-        data_ptr += 2;
+        data_ptr += 1;
+        memory[data_ptr as usize] += 1;
     }
-    data_ptr -= 1;
-    memory[data_ptr as usize] -= 14;
-    print!("{}", memory[data_ptr as usize] as char);
-    data_ptr += 2;
-    print!("{}", memory[data_ptr as usize] as char);
-    memory[data_ptr as usize] += 3;
-    print!("{}", memory[data_ptr as usize] as char);
-    memory[data_ptr as usize] -= 6;
-    print!("{}", memory[data_ptr as usize] as char);
-    memory[data_ptr as usize] -= 8;
-    print!("{}", memory[data_ptr as usize] as char);
-    data_ptr += 1;
-    memory[data_ptr as usize] += 1;
-    print!("{}", memory[data_ptr as usize] as char);
-    data_ptr += 1;
-    memory[data_ptr as usize] += 1;
-    print!("{}", memory[data_ptr as usize] as char);
+    while (memory[data_ptr as usize] > 0) {
+        print!("{}", memory[data_ptr as usize] as char);
+    }
 }

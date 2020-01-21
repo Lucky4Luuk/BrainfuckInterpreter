@@ -3,6 +3,7 @@
 //Otherwise, the code will error upon an (under/over)flow.
 
 pub mod bf_interpreter;
+pub mod bf_transcompilers;
 
 use std::error::Error;
 use std::fs::File;
@@ -10,11 +11,12 @@ use std::io::prelude::*;
 use std::path::Path;
 
 fn main() {
-    println!("Brainfuck: ++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.\n");
+    // println!("Brainfuck: ++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.\n");
     // bf_interpreter::interpret("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.".to_string());
     // bf_interpreter::interpret(include_str!("hello_world.txt").to_string());
     // let translated = bf_interpreter::translate_rust("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.".to_string());
-    let translated = bf_interpreter::translate_rust(include_str!("hello_world.bf").to_string());
+    let extensions: Vec<bf_transcompilers::Extension> = Vec::new();
+    let translated = bf_transcompilers::translate_rust(include_str!("sierpinski.bf").to_string(), extensions);
     // println!("{}", translated);
 
     let path = Path::new("output.rs");
