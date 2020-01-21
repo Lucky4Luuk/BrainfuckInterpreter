@@ -10,11 +10,11 @@ use std::io::prelude::*;
 use std::path::Path;
 
 fn main() {
-    println!("Brainfuck: ++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.");
+    println!("Brainfuck: ++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.\n");
     // bf_interpreter::interpret("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.".to_string());
     // bf_interpreter::interpret(include_str!("hello_world.txt").to_string());
     // let translated = bf_interpreter::translate_rust("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.".to_string());
-    let translated = bf_interpreter::translate_rust(include_str!("input_test.bf").to_string());
+    let translated = bf_interpreter::translate_rust(include_str!("hello_world.bf").to_string());
     // println!("{}", translated);
 
     let path = Path::new("output.rs");
