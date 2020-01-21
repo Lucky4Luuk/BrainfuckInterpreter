@@ -15,8 +15,14 @@ fn main() {
     // bf_interpreter::interpret("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.".to_string());
     // bf_interpreter::interpret(include_str!("hello_world.txt").to_string());
     // let translated = bf_interpreter::translate_rust("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.".to_string());
-    let extensions: Vec<bf_transcompilers::Extension> = Vec::new();
-    let translated = bf_transcompilers::translate_rust(include_str!("sierpinski.bf").to_string(), extensions);
+    let mut extensions: Vec<bf_transcompilers::Extension> = Vec::new();
+    let test_extension = bf_transcompilers::Extension {
+        character: '#',
+        filename: "extensions/test.rs",
+        function_callback: "print_hello()"
+    };
+    extensions.push(test_extension);
+    let translated = bf_transcompilers::translate_rust(include_str!("hello_world.bf").to_string(), &extensions);
     // println!("{}", translated);
 
     let path = Path::new("output.rs");
